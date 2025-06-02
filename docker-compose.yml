@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: users-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: yourpassword
+      POSTGRES_DB: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+  server:
+    build: ./server
+    container_name: users-server
+    env_file: ./server/.env
+    environment:
+      PG_HOST: postgres
+    ports:
+      - '5000:5000'
+    depends_on:
+      - postgres
+
+  client:
+    build: ./client
+    container_name: users-client
+    ports:
+      - '3000:80'
+    depends_on:
+      - server
+
+volumes:
+  postgres_data:

@@ -1,0 +1,39 @@
+# ────────────────────────────────────────────────────────────────────────────────
+# 1) Node artifacts (both frontend and backend)
+# ────────────────────────────────────────────────────────────────────────────────
+# Ignore all node_modules folders in client/ and server/
+node_modules/
+server/node_modules/
+client/node_modules/
+
+# ────────────────────────────────────────────────────────────────────────────────
+# 2) Environment and config files you don’t want committed
+# ────────────────────────────────────────────────────────────────────────────────
+# If you store your secrets in .env, don’t commit them.
+server/.env
+# (Optionally, if you have any client‐side .env files)
+client/.env.local
+client/.env.development.local
+client/.env.test.local
+client/.env.production.local
+
+# ────────────────────────────────────────────────────────────────────────────────
+# 3) Build outputs & logs
+# ────────────────────────────────────────────────────────────────────────────────
+# React build folder
+client/build/
+
+# If you ever generate coverage reports, lock files, etc.
+coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ────────────────────────────────────────────────────────────────────────────────
+# 4) Mac/Windows specific files (optional)
+# ────────────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+
+git-commit-push.sh
